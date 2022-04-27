@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Kayıt Ol</h3>
+        <div class="inner-sec">
+            @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+            {
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Adınız Soyadınız</label>
+                        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterName,"" ,new { @class = "text-danger"})
+                        @*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Mail Adresi</label>
+
+                        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1 mb-2">Şifre</label>
+                        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputPassword2 mb-2">Görsel Dosya Yolu</label>
+                        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+                <p>
+                    <a href="#" id="btn1">Tüm şartları okudum, kabul ediyorum.</a>
+                </p>
+            }
+        </div>
+    </div>
+    <br />
+    <script>
+        $('#btn1').click(function () {
+            swal("Site kayıtlı kullanıcısı olduğunuzda tabi olduğunuz kurallar ve diğer yasal konular aşağıdaki gibidir.","(- kayıtlı kullanıcı ve yazar olmak) 18 yaş sınırı uygulamaktayız, bu nedenle 18 yaşından küçüklerin kullanıcı olması maalesef mümkün değil.sitede kayıtlı kullanıcı olmak için sizden istenilen bilgileri girmeniz gerekmekte.bu işlem tamamlandıktan sonra size aktivasyon için eposta göndereceğiz.(- işleyiş ve sorumluluklarınız)oluşturduğunuz içerik site kurallarına ve hukuka uygun olmak zorundadır.oluşturduğunuz içerik tüm sorumluluğu size ait olmak üzere ve hiçbir ön denetime tabi olmadan yayına girdiğinden, oluşturduğunuz içeriğin hukuka aykırı olmadığından lütfen emin olun.içerik yayına alındığı anda hukuki sorumluluğunuz başladığından, oluşturduğunuz içeriğin daha sonra tarafınızca veya şikayet / haberdar edilme vs.üzerine site tarafından silinmiş olması sorumluluğunuzu ortadan kaldırmayacaktır.site kuralları, entrylerin silinme sebepleri ve diğer yaptırımlar kullanıcılara site üzerinden duyurulmaktadır, bunların takibi sizin sorumluluğunuzdadır.(- gizlilik) Sitede bulunduğunuz süre boyunca 'cookie' olarak da adlandırılan çerezlerin ve buna benzer unsurların bilgisayarınıza yerleştirilmesi söz konusu olabilir. yasal zorunluluğun söz konusu olması ve yetkili makamlar tarafından usulüne uygun olarak talep edilmesi halinde bilgileriniz ilgili makamla aylaşılabilecektir.kendi isteğiniz doğrultusunda mesajlaşma yoluyla paylaştığınız veya entrylerinizle alenileştirdiğiniz bilgilerinize ilişkin olarak sitenin hiçbir sorumluluğu bulunmamaktadır. kişisel yazışma yoluyla veya yayınladığınız entrylerde paylaştığınız bilgilere özen göstermenizi tavsiye ederiz.(- telif) sitede oluşturduğunuz / yayınladığınız içeriklerin telif hakları bize aittir. bu nedenle sitede yayınlandığınız içeriğinizi(entrylerinizi) ticari maksatla dahi dilediğiniz şekilde derleyip, kullanabiliriz. ancak sitede yayında olan içeriklerinizi internet üzerinde başka bir sitede daha yayınlamanız halinde siteden aktif link vermeniz gerekmektedir.(- sub - etha ve diğer fonksiyonlar) site içi imkanları kullanırken hukuka ve varsa bunlara ilişkin kurallara uygun davranmanız gerekmektedir. sub - etha bölümünde yer alan siteler - aksi yazılı olarak açıkça belirtilmedikçe - tamamen üçüncü kişilere ait olup, geliştirilmesi, işletilmesi ve yönetilmesi tamamen kendilerince yapılmakta olup, ekşi teknoloji’nin bu sitelerle hiçbir bağlantısı bulunmamaktadır. bu sitelerin işleyişi, kuralları, veri güvenliği prosedürleri ve gizlilik politikaları hakkında hiçbir bilgimiz, teminatımız veya taahhüdümüz bulunmamaktadır.(- kullanım koşulları) 18 yaş sınırı dışında ikinci ve ön önemli kural site içerisinde en yüksek merci olan adminin yasama yürütme yargıyı temsil etmesidir. 30.03.2022");
+        });
+    </script>
+</section>
+
